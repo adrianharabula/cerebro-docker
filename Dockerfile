@@ -9,7 +9,7 @@ RUN  apt-get update \
  && wget -qO- https://github.com/lmenezes/cerebro/releases/download/v${CEREBRO_VERSION}/cerebro-${CEREBRO_VERSION}.tgz \
   | tar xzv --strip-components 1 -C /opt/cerebro \
  && sed -i '/<appender-ref ref="FILE"\/>/d' /opt/cerebro/conf/logback.xml \
- && echo "play.ws.ssl.loose.acceptAnyCertificate = true" >> /opt/cerebro/conf/application.conf
+ && echo "play.ws.ssl.loose.acceptAnyCertificate = true" >> /opt/cerebro/conf/application.conf \
  && addgroup -gid 1000 cerebro \
  && adduser -gid 1000 -uid 1000 cerebro \
  && chown -R cerebro:cerebro /opt/cerebro
